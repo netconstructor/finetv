@@ -420,10 +420,10 @@ function get_image_size_name($image_data, $image_mode)
 			$image_size_name = "medium";
 			break;
 		case 'half-left':
-			$image_size_name = "half";
+			$image_size_name = "whole";
 			break;
 		case 'half-right':
-			$image_size_name = "half";
+			$image_size_name = "whole";
 			break;
 		case 'whole':
 			$image_size_name = "whole";
@@ -469,7 +469,7 @@ function get_image_class_name($modfied_image_size_name,$image_mode)
 {
 	$image_class_name = "";
 
-	if($modfied_image_size_name == "whole" || $modfied_image_size_name == "half" )
+	if($modfied_image_size_name == "whole")
 	{
 		$image_class_name =" bg";
 	}
@@ -492,11 +492,11 @@ function get_content_position_class_name($modfied_image_size_name,$image_mode)
 {
 	$content_position_class_name = "";
 
-	if($modfied_image_size_name == "half" && $image_mode == "half-left")
+	if($modfied_image_size_name == "whole" && $image_mode == "half-left")
 	{
 		$content_position_class_name = " text_to_the_right";
 	}
-	else if($modfied_image_size_name == "half" && $image_mode == "half-right")
+	else if($modfied_image_size_name == "whole" && $image_mode == "half-right")
 	{
 		$content_position_class_name  =" text_to_the_left";
 	}
@@ -582,5 +582,4 @@ function add_style_block_if_there_is_settings()
 add_filter('custom_menu_order', 'custom_menu_order'); // Activate custom_menu_order  
 add_filter('menu_order', 'custom_menu_order');
 add_image_size( 'whole',1920,1080,true ); // Full size
-add_image_size( 'half',960,1080,true ); // Full size
 
