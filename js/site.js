@@ -20,17 +20,16 @@
 
 			var hour=today.getHours();
 			var minute=today.getMinutes();
-			var secound=today.getSeconds();
-			// add a zero in front of numbers<10
+
+			// add a zero in front of numbers < 10
 			hour = checkTime(hour);
 			minute=checkTime(minute);
-			secound=checkTime(secound);
 
 			month=checkTime(month);
 			day=checkTime(day);
 
 
-			$('#datetime-panel').text(year+"-"+month+"-"+day+" "+hour+":"+minute+":"+secound);
+			$('#datetime-panel').text(year+"-"+month+"-"+day+" "+hour+":"+minute);
 			
 			t=setTimeout(function(){startTime()},500);
 		}
