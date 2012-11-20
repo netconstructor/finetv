@@ -1,6 +1,6 @@
 
 	jQuery(document).ready(function($){
-		$('html').hide().fadeIn(2000);
+		$('body').hide().fadeIn(2000);
 
 
 
