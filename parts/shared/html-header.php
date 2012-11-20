@@ -16,6 +16,5 @@
 		<?php wp_head(); ?>
 
 		<?php add_style_block_if_there_is_settings(); ?>
-
 	</head>
 	<body <?php body_class(); ?>>
