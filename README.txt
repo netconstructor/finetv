@@ -23,6 +23,8 @@
 
 	Repeater plugin for Advanced custom fields
 
+	Option plugin for Advanced custom fields
+
 	- - - - - - - - - - - - - - - - - - - - - - -
 
 	Enjoy!
