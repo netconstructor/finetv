@@ -1,4 +1,0 @@
-finetv
-======
-
-Slideshow with wordpress
