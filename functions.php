@@ -74,6 +74,10 @@
 		wp_register_script( 'site', get_template_directory_uri().'/js/site.js', array( 'jquery' ) );
 		wp_enqueue_script( 'site' );
 
+		wp_register_script( 'clock', get_template_directory_uri().'/js/date-se-SE.js', array( 'jquery' ) );
+		wp_enqueue_script( 'clock' );
+
+
 		wp_register_style( 'screen', get_template_directory_uri().'/style.css', '', '', 'screen' );
         wp_enqueue_style( 'screen' );
 	}	

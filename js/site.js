@@ -1,5 +1,5 @@
 
-	jQuery(document).ready(function($) {
+	jQuery(document).ready(function($){
 		$('html').hide().fadeIn(2000);
 
 
@@ -57,7 +57,7 @@
 			{
 				$slides = $source.find('> div');
 
-				console.log($slides.length);
+				//console.log($slides.length);
 
 				if($slides.length == 1)
 				{

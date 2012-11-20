@@ -94,7 +94,7 @@ body
 
 
 
-header h1 a,header h1 a:link ,header h1 a:visited, header h1 a:active 
+div#header h1 a,div#header h1 a:link ,div#header h1 a:visited, div#header h1 a:active 
 {
 	font-family: verdana;
 	font-size: 36px;
@@ -102,15 +102,16 @@ header h1 a,header h1 a:link ,header h1 a:visited, header h1 a:active
 	text-decoration: none;
 }
 
-header#slide-header
+div#slide-header
 {
-	background: url('images/finspang-shield.png') no-repeat 10px -5px transparent;
+	background: url('images/finspang-shield.png') no-repeat 10px -8px transparent;
 	z-index: 20;
 	position: absolute;
 	top:0;
 	left:0;
 	height:200px;
 	margin:0;
+	display:block;
 }
 
 header h1 a:hover
@@ -118,22 +119,26 @@ header h1 a:hover
 	text-decoration: underline;
 }
 
-#primary,#slide-header,header,footer
+#primary,#slide-header,#header,#footer
 {
 	width:60%;
 	
 }
-#primary,header,footer{
+#primary,#header,#footer{
 	margin:225px auto 20px auto;
 }
+body div#primary 
+{
+	margin-top:225px !important;
+}
 
-header
+#header
 {
 	margin-top:185px;
 }
-footer,.home #primary{margin-top:10px;}
+#footer,.home #primary{margin-top:10px;}
 
-footer
+#footer
 {
 	margin-bottom: 0px;
 }
@@ -169,6 +174,8 @@ footer
 	
 	text-align: right;
 	width: 100%;
+
+	display:block;
 }
 
 #slide-footer div
