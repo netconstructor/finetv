@@ -1,0 +1,291 @@
+/*
+Theme Name: 	Finetv
+Theme URI: 		http://www.finspang.se
+Description: 	Finetv for presenting slides on a monitor
+Version: 		4.0
+Author: 		Johan Furuskog
+Author URI: 	http://www.furuskog.se
+Tags: 			TV, information, slides, clean, basic
+*/
+
+/*
+===========================
+CONTENTS:
+
+01 Sensible defaults
+02 Typography
+03 Media queries 
+===========================
+*/
+
+/* ---------------------------------------------------------------------------------------------------------- 
+01 Sensible defaults ----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+@import "css/reset.css";
+
+
+div,
+article,
+section,
+header,
+footer,
+nav,
+li					{ position:relative; /* For absolutely positioning elements within containers (add more to the list if need be) */ }
+.group:after 		{ display:block; height:0; clear:both; content:"."; visibility:hidden; /* For clearing */ }
+body 				{ background:#fff; /* Don't forget to style your body to avoid user overrides */ }
+::-moz-selection 	{ background:#ff0; color:#333; }
+::selection 		{ background:#ff0; color:#333; }
+
+/* ---------------------------------------------------------------------------------------------------------- 
+02 Typography -----------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+/*
+
+14 / 16	= 		0.875em 		(14px equivalent)
+16 / 16	= 		1em 			(16px equivalent)
+18 / 16 = 		1.125em 		(18px equivalent)
+21 / 16 = 		1.3125em 		(21px equivalent)
+24 / 16 = 		1.5em 			(24px equivalent)
+30 / 16 = 		1.875em 		(30px equivalent)
+32 / 16 = 		2.0em			(32px equivalent)
+36 / 16 = 		2.25em			(36px equivalent)
+48 / 16 =		3.0em			(48px equivalent)
+
+*/
+
+body,
+input,
+textarea 			{ /* We strongly recommend you declare font-weight using numerical values, but check to see which weights you're exporting first */ }
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 					{ font-weight:bold; /* This helps to identify headings at the initial build stage, but you should write something more precise later on */ }
+
+/* ---------------------------------------------------------------------------------------------------------- 
+03 Media queries (using a mobile-first approach) ------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+/* 400 and up */
+@media screen and (min-width:400px) {
+
+					{ /* Place your styles here for all widths greater than 400px */ }
+
+}
+
+/* Retina Display */
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+
+					{ /* Place your styles here for all 'Retina' screens */ }
+
+}
+/* Slides */	
+body 
+{
+	
+	width:100%;
+	font-family: verdana;
+}
+
+* {overflow: none;}
+*::-webkit-scrollbar { 
+    display: none; 
+}
+
+
+
+div#header h1 a,div#header h1 a:link ,div#header h1 a:visited, div#header h1 a:active 
+{
+	font-family: verdana;
+	font-size: 2.25em;
+	color:#d10a10;
+	text-decoration: none;
+}
+
+div#slide-header
+{
+	background: url('images/finspang-shield.png') no-repeat 10px -8px transparent;
+	z-index: 20;
+	position: absolute;
+	top:0;
+	left:0;
+	height:200px;
+	margin:0;
+	display:block;
+	width:100%;
+}
+
+header h1 a:hover
+{
+	text-decoration: underline;
+}
+
+#primary,#slide-header,#header,#footer
+{
+	max-width: 50.0em;      /* 800px / 16px = 61.75em */
+	
+}
+body #primary,#header,#footer{
+	margin:225px auto 20px auto;
+}
+div#primary 
+{
+	margin-top:225px;
+}
+
+#header
+{
+	margin-top:185px;
+}
+#footer,body.home #primary{margin-top:10px;}
+
+#footer
+{
+	margin-bottom: 0px;
+}
+
+#primary h1
+{
+	font-size: 3.0em;
+	margin:25px 0px;
+
+}
+
+#primary h2 
+{
+	font-size: 2.25em;
+	margin:15px 0px;
+}
+
+#primary p
+{
+	font-size: 2.0em;
+}
+
+
+#slide-footer
+{
+	position:absolute;
+	bottom: 0;
+	left:0;
+	z-index: 45;
+	background: #d10a10;
+	color:#fff;
+	text-align: right;
+	width: 100%;
+	display:block;
+}
+
+#slide-footer div
+{
+	margin:10px 0.625em 10px 0.625em;
+}
+
+div#datetime-panel
+{
+	position:absolute;
+	top: 0.625em;
+	right:0.625em;
+	border-radius: 5px;
+	background: #f1f1f1;
+	color: #555;
+	padding:5px 0.625em;
+	z-index:25;
+}
+
+div.slider-item 
+{
+	height: 300px;
+	overflow: none;
+	z-index:15;
+
+}
+div.slider-item img.slide_image
+{
+border: 0.375em solid white;
+margin: 0px 1.0em 0px 0px;
+-moz-box-shadow: 0 0 0.5em #ccc;
+-webkit-box-shadow: 0 0 0.5em#ccc;
+box-shadow: 0 0 0.5em #ccc;
+}
+
+div.slider-item img.slide_image.image_to_the_left
+{
+	float: left;
+	margin: 0px 1.0em 0px 0px;
+}
+div.slider-item img.slide_image.image_to_the_right
+{
+	float: right;
+	margin: 0px 0px 0px 1.0em;
+}
+
+
+img.bg {
+	/* Set rules to fill background */
+	min-height: 100%;
+	min-width: 64.0em;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	float: none !important;
+	
+	/* Set up proportionate scaling */
+	width: 100%;
+	height: auto;
+	
+	/* Set up positioning */
+	position: fixed;
+	top: 0;
+	left: 0;
+	border:none !important;
+	padding:0;
+	margin:0 !important;
+	z-index: 0;
+}
+
+
+
+img.bg.slide_image.image_to_the_left {
+		
+		left: -50%;
+		margin-right: -32.0em;   /* 50% */
+
+		
+}
+img.bg.slide_image.image_to_the_right {
+		left: 50%;
+		margin-left: -32.0em;   /* 50% */
+}
+
+div.slider_text.text_to_the_right
+{
+	max-width: 32em;
+	position: absolute;
+	right: -12.8em;
+	height: 100%;
+}
+
+div.slider_text {/*background: #fff;*/}
+
+div.slider_text.text_to_the_left
+{
+	max-width: 32em;
+	position: absolute;
+	left: -12.8em;
+ 	height: 100%;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+	/*img.bg {
+		left: 50%;
+		margin-left: -512px;   /* 50% */
+	/*}*/
+}
+
+
+
+
