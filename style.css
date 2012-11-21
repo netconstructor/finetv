@@ -48,6 +48,9 @@ body 				{ background:#fff; /* Don't forget to style your body to avoid user ove
 21 / 16 = 		1.3125em 		(21px equivalent)
 24 / 16 = 		1.5em 			(24px equivalent)
 30 / 16 = 		1.875em 		(30px equivalent)
+32 / 16 = 		2.0em			(32px equivalent)
+36 / 16 = 		2.25em			(36px equivalent)
+48 / 16 =		3.0em			(48px equivalent)
 
 */
 
@@ -97,7 +100,7 @@ body
 div#header h1 a,div#header h1 a:link ,div#header h1 a:visited, div#header h1 a:active 
 {
 	font-family: verdana;
-	font-size: 36px;
+	font-size: 2.25em;
 	color:#d10a10;
 	text-decoration: none;
 }
@@ -112,6 +115,7 @@ div#slide-header
 	height:200px;
 	margin:0;
 	display:block;
+	width:100%;
 }
 
 header h1 a:hover
@@ -121,23 +125,27 @@ header h1 a:hover
 
 #primary,#slide-header,#header,#footer
 {
-	width:60%;
+	max-width: 50.0em;      /* 800px / 16px = 61.75em */
 	
 }
-#primary,#header,#footer{
+body #primary,#header,#footer{
 	margin:225px auto 20px auto;
 }
-body div#primary 
+div#primary 
 {
+<<<<<<< HEAD
 	margin-top:225px !important;
 	display: block;
+=======
+	margin-top:225px;
+>>>>>>> 5c04428d4f041fc3daaa347399524e29adc3ef89
 }
 
 #header
 {
 	margin-top:185px;
 }
-#footer,.home #primary{margin-top:10px;}
+#footer,body.home #primary{margin-top:10px;}
 
 #footer
 {
@@ -146,21 +154,21 @@ body div#primary
 
 #primary h1
 {
-	font-size: 48px;
+	font-size: 3.0em;
 	margin:25px 0px;
 
 }
 
 #primary h2 
 {
-	font-size: 36px;
+	font-size: 2.25em;
 	margin:15px 0px;
 
 }Raddningstjanst
 
 #primary p
 {
-	font-size: 32px;
+	font-size: 2.0em;
 }
 
 
@@ -172,27 +180,25 @@ body div#primary
 	z-index: 45;
 	background: #d10a10;
 	color:#fff;
-	
 	text-align: right;
 	width: 100%;
-
 	display:block;
 }
 
 #slide-footer div
 {
-	margin:10px;
+	margin:10px 0.625em 10px 0.625em;
 }
 
 div#datetime-panel
 {
 	position:absolute;
-	top: 10px;
-	right:10px;
+	top: 0.625em;
+	right:0.625em;
 	border-radius: 5px;
 	background: #f1f1f1;
 	color: #555;
-	padding:5px 10px;
+	padding:5px 0.625em;
 	z-index:25;
 }
 
@@ -205,29 +211,29 @@ div.slider-item
 }
 div.slider-item img.slide_image
 {
-border: 6px solid white;
-margin: 0px 16px 0px 0px;
--moz-box-shadow: 0 0 8px #ccc;
--webkit-box-shadow: 0 0 8px#ccc;
-box-shadow: 0 0 8px #ccc;
+border: 0.375em solid white;
+margin: 0px 1.0em 0px 0px;
+-moz-box-shadow: 0 0 0.5em #ccc;
+-webkit-box-shadow: 0 0 0.5em#ccc;
+box-shadow: 0 0 0.5em #ccc;
 }
 
 div.slider-item img.slide_image.image_to_the_left
 {
 	float: left;
-	margin: 0px 16px 0px 0px;
+	margin: 0px 1.0em 0px 0px;
 }
 div.slider-item img.slide_image.image_to_the_right
 {
 	float: right;
-	margin: 0px 0px 0px 16px;
+	margin: 0px 0px 0px 1.0em;
 }
 
 
 img.bg {
 	/* Set rules to fill background */
 	min-height: 100%;
-	min-width: 1024px;
+	min-width: 64.0em;
 	-moz-box-shadow: none !important;
 	-webkit-box-shadow: none !important;
 	box-shadow: none !important;
@@ -252,20 +258,20 @@ img.bg {
 img.bg.slide_image.image_to_the_left {
 		
 		left: -50%;
-		margin-right: -512px;   /* 50% */
+		margin-right: -32.0em;   /* 50% */
 
 		
 }
 img.bg.slide_image.image_to_the_right {
 		left: 50%;
-		margin-left: -512px;   /* 50% */
+		margin-left: -32.0em;   /* 50% */
 }
 
 div.slider_text.text_to_the_right
 {
-	width: 60%;
+	max-width: 32em;
 	position: absolute;
-	right: -20%;
+	right: -12.8em;
 	height: 100%;
 }
 
@@ -273,9 +279,9 @@ div.slider_text {/*background: #fff;*/}
 
 div.slider_text.text_to_the_left
 {
-	width: 60%;
+	max-width: 32em;
 	position: absolute;
-	left: -20%;
+	left: -12.8em;
  	height: 100%;
 }
 
