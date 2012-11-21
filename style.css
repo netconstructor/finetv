@@ -130,6 +130,7 @@ header h1 a:hover
 body div#primary 
 {
 	margin-top:225px !important;
+	display: block;
 }
 
 #header
@@ -155,7 +156,7 @@ body div#primary
 	font-size: 36px;
 	margin:15px 0px;
 
-}
+}Raddningstjanst
 
 #primary p
 {
