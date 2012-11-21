@@ -141,7 +141,10 @@ div#primary
 	margin-top:185px;
 }
 
-#footer,body.home #primary{margin-top:10px;}
+#footer,body.home #primary
+{
+	margin-top:10px;
+}
 
 #footer
 {
