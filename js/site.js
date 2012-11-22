@@ -64,7 +64,7 @@
 					// Refresh the page sometimes to account for new code...
 					if(refreshCounter > 60)
 					{
-						$('html').fadeOut(1000,function(){
+						$('body').fadeOut(1000,function(){
 							location.reload();
 						});
 						
@@ -157,14 +157,20 @@
 
 
 						// fade the last item out
-						$container.find('> div:last').fadeOut(1000,function(){
+						/*$container.find('> div:last').fadeOut(1000,function(){
 							// increase the height of the NEW first item
 							$insert.fadeIn(1000);
 							// AND at the same time - decrease the height of the LAST item
 							
 							// finally fade the first item in (and remove the last)
 							$(this).remove();
-						});
+						});*/
+						
+						$container.find('> div:last').hide();
+						$container.find('> div:last').remove();
+						$insert.show();
+
+
 						
 						// Get the duraction of the slide
 						duraction = slide_settings.duraction;
