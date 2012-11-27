@@ -1,0 +1,19 @@
+CACHE MANIFEST
+index.php
+single-slide.php
+style.css
+functions.php
+404.php
+js/date-se-SE.js
+js/date.js
+js/site.js
+css/reset.js
+external/starkers-utilities.php
+taxonomy-place.php
+images/finspang-shield.php
+fallback.html
+
+FALLBACK
+index.php fallback.html
+taxonomy-place.php fallback.html
+single-slide.php fallback.html
