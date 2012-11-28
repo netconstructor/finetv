@@ -79,9 +79,15 @@
 						  $(data).find('div#'+container_id+' > div').each(function(){
 						  	
 						  	$(this).appendTo($source);
-						  
+
 						  });
 						  
+						}).error(function() { 
+							
+							$fallback_source.find('> div').each(function(){
+							$(this).appendTo($source);
+						});
+
 						});
 					}
 
@@ -91,7 +97,7 @@
 					// Refresh the page to try to avoid a error loop... 
 					if(refreshCounter > 3)
 					{
-						location.reload();
+						//location.reload();
 					}
 
 					refreshCounter++;
@@ -102,7 +108,10 @@
 
 				//Grab the first item and remove it from the source
 
-				return $slides.filter(':first').remove();
+				$slide_object = $slides.filter(':first').appendTo($fallback_source);
+				$fallback_source.filter(':first').remove();
+
+				return $slide_object;
 			}
 
 			// 1. setup
@@ -119,7 +128,9 @@
 
 				var refreshCounter = 0;
 
-				var $source = $('<div />').hide().appendTo('body');
+				var $source = $('<div id="source" />').hide().appendTo('body');
+
+				var $fallback_source = $('<div id="fallback_source" />').hide().appendTo('body');
 
 				// Capture the cache 
 				// TODO: Create ofline slides to, have incase the internet conection fails...
@@ -134,8 +145,13 @@
 
 				// Comp the list down to one
 
+				$container.find('> div').clone().appendTo($fallback_source);
 				$container.find('> div').filter(':gt(0)').appendTo($source);
-
+				
+				
+			
+				
+				
 				
 
 				//2. effect

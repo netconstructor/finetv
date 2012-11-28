@@ -82,6 +82,27 @@
         wp_enqueue_style( 'screen' );
 	}	
 
+
+	/*
+		Removes the version on the script and the css files
+	*/
+	function control_wp_url_versioning($src)
+	{
+	    // $src is the URL that WP has generated for the script or stlye you added 
+	    // with wp_enqueue_script() or wp_enqueue_style(). This function currently 
+	    // removes the version string off *all* scripts. If you need to do something 
+	    // different, then you should do it here.
+	    $src = remove_query_arg( 'ver', $src );
+	    return $src;
+	}
+
+	// The default script priority is 10. We load these filters with priority 15 to 
+	// ensure they are run *after* all the default filters have run. 
+	add_filter('script_loader_src', 'control_wp_url_versioning', 15); 
+	add_filter('style_loader_src', 'control_wp_url_versioning', 15); 
+
+
+
 	/* ========================================================================================================================
 	
 	Comments
@@ -582,8 +603,10 @@ function add_style_block_if_there_is_settings()
         'options-general.php', // Settings  
         'separator-last', // Last separator  
     );  
-}  
+} 
 add_filter('custom_menu_order', 'custom_menu_order'); // Activate custom_menu_order  
 add_filter('menu_order', 'custom_menu_order');
 add_image_size( 'whole',1920,1080,true ); // Full size
+
+
 
