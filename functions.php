@@ -71,6 +71,10 @@
 	 */
 
 	function script_enqueuer() {
+
+		wp_register_script( 'transit', get_template_directory_uri().'/js/jquery.transit.min.js', array( 'jquery' ) );
+		wp_enqueue_script( 'transit' );
+
 		wp_register_script( 'site', get_template_directory_uri().'/js/site.js', array( 'jquery' ) );
 		wp_enqueue_script( 'site' );
 

@@ -1,8 +1,5 @@
 
 	jQuery(document).ready(function($){
-		$('body').hide().fadeIn(2000);
-
-
 
 		if($('div#datetime-panel').length > 0)
 		{
@@ -132,6 +129,10 @@
 
 				var $fallback_source = $('<div id="fallback_source" />').hide().appendTo('body');
 
+				$('<div id="transition_element" />').appendTo('body');
+
+			
+
 				// Capture the cache 
 				// TODO: Create ofline slides to, have incase the internet conection fails...
 /*
@@ -182,12 +183,14 @@
 							$(this).remove();
 						});*/
 						
-						$container.find('> div:last').hide();
-						$container.find('> div:last').remove();
-						$insert.show();
-
 
 						
+						$('div#transition_element').transition({backgroundColor : '#fff'}, function() {
+    						$container.find('> div:last').remove();
+    						$insert.show();
+							$('div#transition_element').transition({backgroundColor : 'transparent'});
+						});
+
 						// Get the duraction of the slide
 						duraction = slide_settings.duraction;
 					}
@@ -226,6 +229,11 @@
 
 			return slide_settings;
 
+		}
+
+		function pausecomp(ms) {
+			ms += new Date().getTime();
+			while (new Date() < ms){}
 		}
 
 

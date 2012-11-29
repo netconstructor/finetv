@@ -283,13 +283,19 @@ div.slider_text.text_to_the_left
  	height: 100%;
 }
 
+div#transition_element
+{
+	position:absolute;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	z-index: 19;
+}
+
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
 	/*img.bg {
 		left: 50%;
 		margin-left: -512px;   /* 50% */
 	/*}*/
 }
-
-
-
-
