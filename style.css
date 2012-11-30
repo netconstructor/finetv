@@ -90,10 +90,8 @@ body
 	font-family: verdana;
 }
 
-* {overflow: none;}
-*::-webkit-scrollbar { 
-    display: none; 
-}
+* {overflow: none !!important;}
+*::-webkit-scrollbar {display: none !important;}
 
 
 
