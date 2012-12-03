@@ -85,12 +85,13 @@ h6 					{ font-weight:bold; /* This helps to identify headings at the initial bu
 /* Slides */	
 body 
 {
-	
+	overflow: none !important;
 	width:100%;
 	font-family: verdana;
 }
 
-* {overflow: none !!important;}
+* {overflow: none !!important; overflow-y: none !important; overflow-x:hidden !important; 
+overflow-y:hidden !important;}
 *::-webkit-scrollbar {display: none !important;}
 
 
@@ -116,6 +117,21 @@ div#slide-header
 	width:100%;
 }
 
+#slider{background: blue; width: 100%;/* flexbox, por favor */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+ 
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  
+  display: box;
+  box-orient: horizontal;
+  box-pack: center;
+  box-align: center;}
 header h1 a:hover
 {
 	text-decoration: underline;
@@ -126,12 +142,20 @@ header h1 a:hover
 	max-width: 50.0em;      /* 800px / 16px = 61.75em */
 	
 }
-body #primary,#header,#footer{
+
+
+
+#primary,#header,#footer{
 	margin:225px auto 20px auto;
 }
-div#primary 
+
+.tax-place div#primary
 {
-	margin-top:225px;
+	max-width: 100%;
+	margin-top:0;
+
+
+
 }
 
 #header
@@ -200,9 +224,9 @@ div#datetime-panel
 
 div.slider-item 
 {
-	height: 300px;
-	overflow: none;
 	z-index:15;
+	width:auto;
+
 
 }
 div.slider-item img.slide_image
@@ -263,27 +287,44 @@ img.bg.slide_image.image_to_the_right {
 		margin-left: -32.0em;   /* 50% */
 }
 
-div.slider_text.text_to_the_right
-{
-	max-width: 32em;
-	position: absolute;
-	right: -12.8em;
-	height: 100%;
-}
 
-div.slider_text {/*background: #fff;*/}
+
+div.slider_text 
+{
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-box-pack: center;
+
+display: -moz-box;
+-moz-box-orient: vertical;
+-moz-box-pack: center;
+
+display: box;
+box-orient: vertical;
+box-pack: center;
+    
+background: yellow;
+
+}
 
 div.slider_text.text_to_the_left
 {
-	max-width: 32em;
-	position: absolute;
-	left: -12.8em;
- 	height: 100%;
+	display: block;
+	max-width: 50%;
+	background:red;
+}
+
+div.slider_text.text_to_the_right
+{
+	max-width: 50%;
+	margin-left:50%;
+	background:green;
+	display:block;
 }
 
 div#transition_element
 {
-	position:absolute;
+	position:relative;
 	top:0px;
 	bottom:0px;
 	left:0px;
