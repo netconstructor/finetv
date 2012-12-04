@@ -116,7 +116,7 @@ div#slide-header
 	width:100%;
 }
 
-#slider{ width: 100%; margin:25px;}
+#slider{ width: 100%; margin: 0 25px 0 25px;}
 
 header h1 a:hover
 {
@@ -210,10 +210,9 @@ div.slider-item
 	z-index:15;
 	display:block;
 	width: auto;
-
-	
-
 }
+
+
 div.slider-item img.slide_image
 {
 border: 0.375em solid white;
@@ -276,17 +275,12 @@ img.bg.slide_image.image_to_the_right {
 
 div.slider_text 
 {
-
-
-
     display: block;
-
-
 }
 
 div.slider_text.text_to_the_left
 {
-	display: inline-block;
+	display: block;
 	width: 50%;
 }
 
@@ -294,7 +288,7 @@ div.slider_text.text_to_the_right
 {
 	width: 50%;
 	margin-left:50%;
-	display: inline-block;
+	display: block;
 }
 
 div#transition_element
@@ -307,17 +301,17 @@ div#transition_element
 	z-index: 19;
 }
 
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
+@media screen and (max-width: 1024px) { 
 	#slider
 	{
-		height: 768px;
+		/*height: 768px;*/
 	}
 }
 
-@media screen and (max-width: 1920px) { /* Specific to this particular image */
+@media screen and (max-width: 1920px) { 
 	#slider
 	{
-		height: 1080px;
+		/*height: 1080px;*/
 	}
 }
 

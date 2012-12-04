@@ -6,6 +6,8 @@
 			startTime();
 		}
 
+		
+
 		// Your JavaScript goes here
 		function startTime()
 		{
@@ -39,7 +41,11 @@
 			return i;
 		}
 
+		
+
 		$('#slider').fullSlider();
+
+		
 
 });
 
@@ -148,6 +154,21 @@
 
 				$container.find('> div').clone().appendTo($fallback_source);
 				$container.find('> div').filter(':gt(0)').appendTo($source);
+
+
+				$(window).resize(function() {
+					var height = parseInt($(window).innerHeight())-30;
+  					$container.css("height",height);
+  					$container.find('> div:visible').vAlign();
+				});
+
+
+				
+
+				setTimeout(function()
+					{
+						$(window).resize();
+					}, 10);
 
 				$container.find('> div').first().vAlign();
 				
