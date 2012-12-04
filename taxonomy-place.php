@@ -26,13 +26,28 @@
 
 <?php
 	
-		$post_id = $post->ID;
-
-		$from = get_field('from',$post_id);
-		$to = get_field('to',$post_id);
-		$time_mode = get_field('time_settings_choise',$post_id);
+		 $post_id = $post->ID;
 
 		
+		 $time_mode = get_field('time_settings_choise',$post_id);
+
+
+		 $from = "";
+		 $to = "";
+
+
+
+		if($time_mode == "time_of_day_interval")
+		{
+			$to = get_post_meta( $post_id, 'to_time_of_day', true );
+			$from = get_post_meta( $post_id, 'from_time_of_day', true );
+		}
+		else 
+		{
+			$from = get_field('from',$post_id);
+			$to = get_field('to',$post_id);
+		}
+
 		
 		if(!isValidTime($to,$from) && $time_mode != "no")
 		{

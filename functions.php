@@ -142,6 +142,19 @@
 		$isValidTime = false;
 
 		$today_timestamp = time();
+
+		/* If its only time prefix the current date */
+		if(is_time24($to))
+		{
+			$to = date("Y-m-d").' '.$to;
+		}
+
+		/* If its only time prefix the current date */
+		if(is_time24($from))
+		{
+			$from = date("Y-m-d").' '.$from;
+		}
+
 				
 		if($from != "")
 		{
@@ -152,6 +165,17 @@
 		{
 			$to_timestamp = strtotime($to);
 		}
+
+		echo "\n";
+		echo "\n";
+		echo "\n";
+		echo "\n";
+		echo "\n";
+		echo 'From  = '.$from.' ';
+
+		echo 'To  = '.$to.'';
+		
+		
 
 		if(($from_timestamp == ""|| $from_timestamp == null ) && ($to_timestamp == "" || $to_timestamp == null ))
 		{
@@ -274,25 +298,37 @@ function my_manage_slide_columns( $column, $post_id ) {
     case 'from' :
 
       /* Get the post meta. */
-      $from = get_post_meta( $post_id, 'from', true );
+	  $from = "";
 
-
+	  if($schedule_mode == "time_of_day_interval")
+	  {
+	  	$from = get_post_meta( $post_id, 'from_time_of_day', true );
+	  }
+	  else 
+	  {
+	  	$from = get_post_meta( $post_id, 'from', true );
+	  }
 
       /* If no duration is found, output a default message. */
       if ( empty( $from ) || $schedule_mode == "no" || $schedule_mode == "to"  )
         echo __( '-' );
-
       /* If there is a duration, append 'minutes' to the text string. */
       else
         echo $from;
-
       break;
 
       case 'to' :
 
-      /* Get the post meta. */
-      $to = get_post_meta( $post_id, 'to', true );
+      $to = "";
 
+	  if($schedule_mode == "time_of_day_interval")
+	  {
+	  	$to = get_post_meta( $post_id, 'to_time_of_day', true );
+	  }
+	  else 
+	  {
+	  	$to = get_post_meta( $post_id, 'to', true );
+	  }
 
 
       /* If no duration is found, output a default message. */
@@ -335,8 +371,6 @@ function my_manage_slide_columns( $column, $post_id ) {
       }
 
       break;
-
-      
 
     /* Just break out of the switch statement for everything else. */
     default :
@@ -421,6 +455,11 @@ function add_multiple_slides($post_id,$to,$from)
 	return $slides;
 }
 
+function is_time24($val) 
+{ 
+	return (bool)preg_match("/^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/", $val); 
+} 
+
 function extract_image_tag($image_data,$image_mode,$image_size_name)
 {
 	$image_tag = "";
@@ -433,15 +472,12 @@ function extract_image_tag($image_data,$image_mode,$image_size_name)
 	}
 
 	return $image_tag;
-
 }
 
 
 function get_image_size_name($image_data, $image_mode)
 {
 	$image_size_name = "thumbnail";
-
-	
 
 	switch ($image_mode) {
 		case 'normal-left':
@@ -464,10 +500,6 @@ function get_image_size_name($image_data, $image_mode)
 			break;
 	}
 
-	//echo "<pre>";
-	//print_r($image_size_name);
-	//echo "<pre>";
-
 	if($image_data['sizes'][$image_size_name] == null)
 	{
 		$image_size_name = "large";
@@ -487,10 +519,6 @@ function get_image_size_name($image_data, $image_mode)
 	{
 		$image_size_name = "orginal";
 	}
-
-	//echo "<pre>";
-	//print_r($image_size_name);
-	//echo "<pre>";
 
 	return $image_size_name;
 }
@@ -527,7 +555,6 @@ function get_container_class($modfied_image_size_name,$image_mode)
 	{
 		$class_name = " padded";
 	}
-
 
 	return $class_name;
 
@@ -627,6 +654,3 @@ function add_style_block_if_there_is_settings()
 add_filter('custom_menu_order', 'custom_menu_order'); // Activate custom_menu_order  
 add_filter('menu_order', 'custom_menu_order');
 add_image_size( 'whole',1920,1080,true ); // Full size
-
-
-
