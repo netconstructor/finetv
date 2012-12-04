@@ -209,7 +209,14 @@ div.slider-item
 {
 	z-index:15;
 	display:block;
-	width: auto;
+
+}
+
+div.slider-item.padded 
+{
+	width:60%;
+	margin:0 auto 0 auto; 
+
 }
 
 

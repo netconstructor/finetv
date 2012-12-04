@@ -369,8 +369,9 @@ function add_single_slide($post_id,$to,$from)
 	$slide_image_size_name = get_image_size_name($slide_image,$slide_image_mode);
 
 	$slide_content_position_class = get_content_position_class_name($slide_image_size_name,$slide_image_mode);
+	$slide_container_class = get_container_class($slide_image_size_name,$slide_image_mode);
 
-	$slide .=  '<div class="slider-item">';
+	$slide .=  '<div class="slider-item'.$slide_container_class.'">';
 	$slide .=  '<input type="hidden" name="slide_duraction" value="'.$slide_duraction.'"/>';
 	$slide .=  extract_image_tag($slide_image,$slide_image_mode, $slide_image_size_name);
 	$slide .=  '<div class="slider_text'.$slide_content_position_class.'">'.$slide_content.'</div>';
@@ -404,8 +405,9 @@ function add_multiple_slides($post_id,$to,$from)
 				$page_slide_image_size_name = get_image_size_name($page_slide_image,$page_slide_image_mode);
 
 				$page_slide_content_position_class = get_content_position_class_name($page_slide_image_size_name,$page_slide_image_mode);
+				$page_slide_container_class =  get_container_class($page_slide_image_size_name,$page_slide_image_mode);
 	
-				$slides .= '<div class="slider-item">';
+				$slides .= '<div class="slider-item'.$page_slide_container_class.'">';
 				$slides .=  '<input type="hidden" name="slide_duraction" value="'.$page_slide_duraction.'"/>';
 				$slides .=  extract_image_tag($page_slide_image,$page_slide_image_mode, $page_slide_image_size_name);
 				$slides .=  '<div class="slider_text'.$page_slide_content_position_class.'">'.$page_slide_content.'</div>';
@@ -514,6 +516,20 @@ function get_image_class_name($modfied_image_size_name,$image_mode)
 
 
 	return $image_class_name;
+
+}
+
+function get_container_class($modfied_image_size_name,$image_mode)
+{
+	$class_name = "";
+
+	if($image_mode != "half-left" && $image_mode != "half-right")
+	{
+		$class_name = " padded";
+	}
+
+
+	return $class_name;
 
 }
 
