@@ -91,9 +91,11 @@ body
 }
 
 * {overflow: none !!important; overflow-y: none !important; overflow-x:hidden !important; 
-overflow-y:hidden !important;}
-*::-webkit-scrollbar {display: none !important;}
+overflow-y:hidden !important;}*/
+**::-webkit-scrollbar {display: none !important;}
 
+
+div#wpadminbar * {overflow: visible !important; overflow-y: visible !important; overflow-x:visible!important; overflow-y:visible !important;}
 
 div#header h1 a,div#header h1 a:link ,div#header h1 a:visited, div#header h1 a:active 
 {
@@ -283,6 +285,7 @@ img.bg.slide_image.image_to_the_right {
 div.slider_text 
 {
     display: block;
+    text-align: center;
 }
 
 div.slider_text.text_to_the_left
