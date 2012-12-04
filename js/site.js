@@ -148,6 +148,8 @@
 
 				$container.find('> div').clone().appendTo($fallback_source);
 				$container.find('> div').filter(':gt(0)').appendTo($source);
+
+				$container.find('> div').first().vAlign();
 				
 				
 			
@@ -187,7 +189,7 @@
 						
 						$('div#transition_element').transition({backgroundColor : '#fff'}, function() {
     						$container.find('> div:last').remove();
-    						$insert.show();
+    						$insert.show().vAlign();
 							$('div#transition_element').transition({backgroundColor : 'transparent'});
 						});
 
@@ -239,4 +241,15 @@
 
 
 	};
+})(jQuery);
+
+(function($){
+	$.fn.vAlign = function(){
+    return this.each(function(i){
+    var ah = $(this).height();
+    var ph = $(this).parent().height();
+    var mh = Math.ceil((ph-ah) / 2);
+    $(this).css('margin-top', mh);
+    });
+};
 })(jQuery);
