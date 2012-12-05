@@ -134,14 +134,18 @@
 	}
 
 
-	function isValidTime($to,$from)
+	function isValidTime($to,$from, $timezone = 'Europe/Stockholm')
 	{
 		$from_timestamp = "";
 		$to_timestamp = "";
 
+		date_default_timezone_set($timezone);
+
 		$isValidTime = false;
 
 		$today_timestamp = time();
+
+		$now = date("Y-m-d h:i:s",$today_timestamp);
 
 		/* If its only time prefix the current date */
 		if(is_time24($to))
@@ -165,18 +169,7 @@
 		{
 			$to_timestamp = strtotime($to);
 		}
-
-		echo "\n";
-		echo "\n";
-		echo "\n";
-		echo "\n";
-		echo "\n";
-		echo 'From  = '.$from.' ';
-
-		echo 'To  = '.$to.'';
 		
-		
-
 		if(($from_timestamp == ""|| $from_timestamp == null ) && ($to_timestamp == "" || $to_timestamp == null ))
 		{
 			$isValidTime = true;
@@ -197,10 +190,6 @@
 		return $isValidTime;
 
 	}
-
-
-
-
 
 	add_action( 'init', 'create_finspang_cms_post_types' );
 
